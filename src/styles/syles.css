@@ -1,0 +1,20 @@
+#app {
+  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #4d4d4d;
+  margin: 0 auto;
+}
+
+.App-header a,
+.App-headed a:visited,
+.App-header a:hover,
+.App-header a:focus {
+  color: #fff;
+}
+
+.App-header a.active {
+  color: #00ffff;
+}
+
+nav {
+  padding-top: 20px;
+}
