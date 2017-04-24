@@ -1,4 +1,8 @@
+.container {
+  padding-bottom: 20px;
+  background: red;
+}
+
 .jumbotron {
-  /* background: #fff; */
   margin-top: 30px;
 }

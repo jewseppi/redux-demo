@@ -14,17 +14,28 @@ const Header = ({loading}) => {
       <nav styleName="navbar navbar-inverse">
         <div styleName="container-fluid">
           <div styleName="navbar-header">
+            <button type="button" styleName="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+              <span styleName="icon-bar"></span>
+              <span styleName="icon-bar"></span>
+              <span styleName="icon-bar"></span>
+            </button>
             <IndexLink to="/" styleName="navbar-brand" activeClassName="active">
               <img src={logo} styleName="pull-left" className={styles.appLogo} alt="logo" />
               <div styleName="pull-left">LifeTales</div>
             </IndexLink>
           </div>
-          <ul styleName="nav navbar-nav">
-            <li><Link to="/" activeClassName="active">Home</Link></li>
-            <li><Link to="/courses" activeClassName="active">Courses</Link></li>
-            <li><Link to="/about" activeClassName="active">About</Link></li>
-            {/* <li>{loading && <LoadingDots interval={100} dots={20}/>}</li> */}
-          </ul>
+          <div styleName="collapse navbar-collapse" id="navbar">
+            <ul styleName="nav navbar-nav">
+              <li><Link to="/" activeClassName="active">Home</Link></li>
+              <li><Link to="/courses" activeClassName="active">Courses</Link></li>
+              <li><Link to="/about" activeClassName="active">About</Link></li>
+              {/* <li>{loading && <LoadingDots interval={100} dots={20}/>}</li> */}
+            </ul>
+            <ul styleName="nav navbar-nav navbar-right">
+              <li><a href="#"><span styleName="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li><a href="#"><span styleName="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+          </div>
         </div>
       </nav>
     </div>

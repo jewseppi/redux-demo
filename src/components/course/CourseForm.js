@@ -3,11 +3,13 @@ import TextInput from '../common/TextInput';
 import SelectInput from '../common/SelectInput';
 import css from 'react-css-modules';
 import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-//import styles from '../App.css';
+
+import styleable from 'react-styleable';
+import styles from '../App.css'; // eslint-disable-line
 
 const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
   return (
-    <div className="container">
+    <div styleName="container" className={styles.container}>
     <form>
       <h1>Manage Course</h1>
 
@@ -17,7 +19,7 @@ const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
         value={course.title}
         onChange={onChange}
         error={errors.title}
-        className="form-group" />
+        styleName="form-group" />
 
       <SelectInput
         name="authorId"
@@ -26,7 +28,7 @@ const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
         defaultOption="Select Author"
         options={allAuthors}
         onChange={onChange} error={errors.authorId}
-        className="form-group" />
+        styleName="form-group" />
 
       <TextInput
         name="category"
@@ -34,7 +36,7 @@ const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
         value={course.category}
         onChange={onChange}
         error={errors.category}
-        className="form-group" />
+        styleName="form-group" />
 
       <TextInput
         name="length"
@@ -42,13 +44,13 @@ const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
         value={course.length}
         onChange={onChange}
         error={errors.length}
-        className="form-group" />
+        styleName="form-group" />
 
       <input
         type="submit"
         disabled={saving}
         value={saving ? 'Saving...' : 'Save'}
-        className="btn btn-primary"
+        styleName="btn btn-primary"
         onClick={onSave} />
     </form>
     </div>
@@ -64,6 +66,4 @@ CourseForm.propTypes = {
   errors: React.PropTypes.object
 };
 
-export default css(CourseForm, bootstrap, {allowMultiple: true, errorWhenNotFound: true});
-//export default CourseForm;
-//export const CourseFormTest = CourseForm;
+export default styleable(styles)(css(CourseForm, bootstrap, {allowMultiple: true}));
