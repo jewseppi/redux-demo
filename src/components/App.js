@@ -1,16 +1,20 @@
 import React, {PropTypes} from 'react';
 import Header from './common/Header';
-import './App.css';
 import {connect} from 'react-redux';
+
+// modular css
+import styleable from 'react-styleable';
+import styles from './App.css'; // eslint-disable-line
 
 class App extends React.Component {
   render() {
+    const {loading, children} = this.props;
     return (
-      <div className="App">
+      <div className={styles.root}>
         <Header
-          loading={this.props.loading}
+          loading={loading}
         />
-        {this.props.children}
+        {children}
       </div>
     );
   }
@@ -19,6 +23,7 @@ class App extends React.Component {
 App.propTypes = {
   children: PropTypes.object, //removed .isRequired to silence react-router error.
   loading: PropTypes.bool.isRequired
+  //css: PropTypes.object // required to silence ESLint css modules error.
 };
 
 function mapStateToProps(state, ownProps) {
@@ -27,4 +32,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default connect(mapStateToProps)(App);
+export default styleable(styles)(connect(mapStateToProps)(App));

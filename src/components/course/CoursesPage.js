@@ -4,6 +4,8 @@ import {bindActionCreators} from 'redux';
 import * as courseActions from '../../actions/courseActions';
 import CourseList from './CourseList';
 import {browserHistory} from 'react-router';
+import css from 'react-css-modules';
+import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 class CoursesPage extends React.Component {
   constructor(props, context) {
@@ -22,11 +24,11 @@ class CoursesPage extends React.Component {
   render() {
     const {courses} = this.props;
     return (
-      <div>
+      <div styleName="container">
         <h1>Courses</h1>
         <input type="submit"
                value="Add Course"
-               className="btn btn-primary"
+               styleName="btn btn-primary"
                onClick={this.redirectToAddCoursePage}/>
         <CourseList courses={courses}/>
       </div>
@@ -51,4 +53,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(css(CoursesPage, bootstrap, {allowMultiple: true}));

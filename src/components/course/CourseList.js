@@ -1,9 +1,11 @@
 import React, {PropTypes} from 'react';
 import CourseListRow from './CourseListRow';
+import css from 'react-css-modules';
+import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const CourseList = ({courses}) => {
   return (
-    <table className="table">
+    <table styleName="table">
       <thead>
       <tr>
         <th>&nbsp;</th>
@@ -26,4 +28,4 @@ CourseList.propTypes = {
   courses: PropTypes.array.isRequired
 };
 
-export default CourseList;
+export default css(CourseList, bootstrap, {allowMultiple: true});

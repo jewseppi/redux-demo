@@ -4,7 +4,7 @@ import {mount, shallow} from 'enzyme';
 import {ManageCoursePage} from './ManageCoursePage';
 
 describe('Manage Course Page', () => {
-  it('sets error message when trying to save empty title', () => {
+  it.skip('sets error message when trying to save empty title', () => {
     const props = {
       authors: [],
       course: {id: '', watchHref: '', title: '', authorId: '', length: '', category: ''},

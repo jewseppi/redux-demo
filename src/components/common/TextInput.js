@@ -1,4 +1,6 @@
 import React, {PropTypes} from 'react';
+import css from 'react-css-modules';
+import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const TextInput = ({name, label, onChange, placeholder, value, error}) => {
   let wrapperClass = 'form-group';
@@ -7,17 +9,17 @@ const TextInput = ({name, label, onChange, placeholder, value, error}) => {
   }
 
   return (
-    <div className={wrapperClass}>
+    <div styleName={wrapperClass}>
       <label htmlFor={name}>{label}</label>
       <div className="field">
         <input
           type="text"
           name={name}
-          className="form-control"
+          styleName="form-control"
           placeholer={placeholder}
           value={value}
           onChange={onChange} />
-        {error && <div className="alert alert-danger">{error}</div>}
+        {error && <div styleName="alert alert-danger">{error}</div>}
       </div>
     </div>
   );
@@ -32,4 +34,4 @@ TextInput.propTypes = {
   error: PropTypes.string
 };
 
-export default TextInput;
+export default css(TextInput, bootstrap, {allowMultiple: true});

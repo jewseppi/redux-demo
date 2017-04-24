@@ -109,6 +109,7 @@ function getCourseById(courses, id) {
 
 function mapStateToProps(state, ownProps) {
   const courseId = ownProps.params.id; // from the path `/course/:id`
+  //alert(JSON.stringify(ownProps));
 
   let course = {id: '', watchHref: '', title: '', authorId: '', length: '', category: ''};
 
