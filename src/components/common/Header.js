@@ -29,6 +29,7 @@ const Header = ({loading}) => {
               <li><Link to="/" activeClassName="active">Home</Link></li>
               <li><Link to="/courses" activeClassName="active">Courses</Link></li>
               <li><Link to="/about" activeClassName="active">About</Link></li>
+              <li><Link to="/stories" activeClassName="active">Stories</Link></li>
               {/* <li>{loading && <LoadingDots interval={100} dots={20}/>}</li> */}
             </ul>
             <ul styleName="nav navbar-nav navbar-right">
