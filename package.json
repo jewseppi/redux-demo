@@ -1,5 +1,5 @@
 {
-  "name": "redux-demo",
+  "name": "react-lifetales",
   "version": "0.1.0",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
