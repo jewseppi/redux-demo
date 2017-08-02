@@ -2,7 +2,6 @@
 import React, {PropTypes} from 'react';
 import { Link, IndexLink } from 'react-router';
 import logo from './logo.svg';
-import LoadingDots from './LoadingDots';
 import styles from '../App.css'; // eslint-disable-line
 import styleable from 'react-styleable';
 import css from 'react-css-modules';
@@ -26,11 +25,7 @@ const Header = ({loading}) => {
           </div>
           <div styleName="collapse navbar-collapse" id="navbar">
             <ul styleName="nav navbar-nav">
-              <li><Link to="/" activeClassName="active">Home</Link></li>
-              <li><Link to="/courses" activeClassName="active">Courses</Link></li>
-              <li><Link to="/about" activeClassName="active">About</Link></li>
-              <li><Link to="/stories" activeClassName="active">Stories</Link></li>
-              {/* <li>{loading && <LoadingDots interval={100} dots={20}/>}</li> */}
+              {/*<li><Link to="/" activeClassName="active">Home</Link></li>*/}
             </ul>
             <ul styleName="nav navbar-nav navbar-right">
               <li><a href="#"><span styleName="glyphicon glyphicon-user"></span> Sign Up</a></li>

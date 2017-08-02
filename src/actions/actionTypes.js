@@ -1,3 +1,5 @@
+export const API_URL = 'https://lifetales-dev.herokuapp.com/api/v1';
+
 export const BEGIN_AJAX_CALL = 'BEGIN_AJAX_CALL';
 export const AJAX_CALL_ERROR = 'AJAX_CALL_ERROR';
 

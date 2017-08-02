@@ -5,7 +5,7 @@ import * as storyActions from '../../actions/storyActions';
 import StoryList from './StoryList';
 import {browserHistory} from 'react-router';
 import css from 'react-css-modules';
-import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import react from '../../styles/react.css';
 
 class StoriesPage extends React.Component {
   constructor(props, context) {
@@ -25,11 +25,6 @@ class StoriesPage extends React.Component {
     const {stories} = this.props;
     return (
       <div styleName="container">
-        <h1>Stories</h1>
-        <input type="submit"
-               value="Add Story"
-               styleName="btn btn-primary"
-               onClick={this.redirectToAddStoryPage}/>
         <StoryList stories={stories}/>
       </div>
     );
@@ -37,7 +32,7 @@ class StoriesPage extends React.Component {
 }
 
 StoriesPage.propTypes = {
-  stories: PropTypes.array.isRequired,
+  stories: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
 };
 
@@ -53,4 +48,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(css(StoriesPage, bootstrap, {allowMultiple: true}));
+export default connect(mapStateToProps, mapDispatchToProps)(css(StoriesPage, react));

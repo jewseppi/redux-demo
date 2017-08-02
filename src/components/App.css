@@ -1,12 +1,27 @@
 /* css modules */
 @import "../styles/config.css";
-@import "./bootstrap.css";
+@import "../styles/stories.css";
+@import "../styles/react.css";
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('../styles/fonts/Quicksand-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('../styles/fonts/Quicksand-Bold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
 
 .root {
   max-width: 100%;
   margin: auto;
   width: var(--pageWidth);
-  background: #fff;
+  background: #000;
 }
 
 .appLogo {
@@ -17,10 +32,13 @@
 }
 
 .appHeader {
-  background-color: #222;
-  height: 150px;
+  background-color: #000;
   padding: 20px;
   color: white;
+}
+
+.appHeader nav {
+ margin: 0;
 }
 
 .appIntro {
@@ -30,8 +48,4 @@
 @keyframes appLogoSpin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-
-.container {
-  padding-bottom: 20px;
 }

@@ -1,20 +1,23 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
+import css from 'react-css-modules';
+import stories from '../../styles/stories.css';
 
 const StoryListRow = ({story}) => {
   return (
-    <tr>
-      <td><a href={story.watchHref} target="_blank">Watch</a></td>
-      <td><Link to={'/story/' + story.id}>{story.title}</Link></td>
-      <td>{story.authorId}</td>
-      <td>{story.category}</td>
-      <td>{story.length}</td>
-    </tr>
+    <div>
+      <a href="" id={story.id} styleName="story-wrap">
+        <div styleName="title-wrap">
+          <div styleName="title">{story['attributes'].title}</div>
+        </div>
+        <img src={story['attributes']['image-url']} styleName="story" />
+      </a>
+    </div>
   );
 };
 
 StoryListRow.propTypes = {
-  course: PropTypes.object.isRequired
+  story: PropTypes.object.isRequired
 };
 
-export default StoryListRow;
+export default css(StoryListRow, stories);

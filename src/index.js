@@ -12,10 +12,12 @@ import {loadStories} from './actions/storyActions';
 import './styles/syles.css';
 import '../node_modules/toastr/build/toastr.min.css';
 
+const ID = '5f87df38-0a65-4999-ba9e-23e3e288659c';
+
 const store = configureStore();
 store.dispatch(loadCourses());
 store.dispatch(loadAuthors());
-store.dispatch(loadStories());
+store.dispatch(loadStories(ID));
 
 render(
   <Provider store={store}>

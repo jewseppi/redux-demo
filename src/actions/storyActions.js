@@ -1,6 +1,13 @@
 import * as types from './actionTypes';
-import storyApi from '../api/storyApi';
 import {beginAjaxCall, ajaxCallError} from './ajaxStatusActions';
+
+const options = {headers: {
+  'Accept': 'application/json',
+  'Content-Type': 'application/json',
+  'Authorization': 'Token token=8c883c6e45024cf7b100ad216f9b06e8'
+},
+  method: 'get'
+};
 
 export function loadStoriesSuccess(stories) {
   return {type: types.LOAD_STORIES_SUCCESS, stories};
@@ -14,18 +21,23 @@ export function updateStorySuccess(course) {
   return {type: types.UPDATE_STORY_SUCCESS, course};
 }
 
-export function loadStories() {
-  return function(dispatch) {
+export function loadStories(id) {
+  return (dispatch) => {
     dispatch(beginAjaxCall());
-    return storyApi.getAllStories().then(stories => {
-      dispatch(loadStoriesSuccess(stories));
-    }).catch(error => {
-      throw(error);
-    });
+    fetch(`${types.API_URL}/members/` + id + `/stories/`, options)
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response;
+      })
+      .then((response) => response.json())
+      .then((stories) => dispatch(loadStoriesSuccess(stories)))
+      .catch((error) => { throw(error); });
   };
 }
 
-export function saveStory(story) {
+/*export function saveStory(story) {
   return function (dispatch, getState) {
     dispatch(beginAjaxCall());
     return storyApi.saveCourse(story).then(savedStory => {
@@ -36,4 +48,4 @@ export function saveStory(story) {
       throw(error);
     });
   };
-}
+}*/
