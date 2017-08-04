@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import StoryListRow from './StoryListRow';
+import StoryListImage from './StoryListImage';
 
 const StoryList = ({stories}) => {
   return (
@@ -7,7 +7,7 @@ const StoryList = ({stories}) => {
       {
         stories['data'] != null ?
           stories['data'].map(story =>
-            <StoryListRow key={story.id} story={story} />) : ''
+            <StoryListImage key={story.id} story={story} />) : ''
       }
     </div>
   );

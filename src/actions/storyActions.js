@@ -13,6 +13,10 @@ export function loadStoriesSuccess(stories) {
   return {type: types.LOAD_STORIES_SUCCESS, stories};
 }
 
+export function loadStorySuccess(stories) {
+  console.log('LOAD_STORY_SUCCESS');
+}
+
 export function createStorySuccess(story) {
   return {type: types.CREATE_STORY_SUCCESS, story};
 }
@@ -24,7 +28,7 @@ export function updateStorySuccess(course) {
 export function loadStories(id) {
   return (dispatch) => {
     dispatch(beginAjaxCall());
-    fetch(`${types.API_URL}/members/` + id + `/stories/`, options)
+    fetch(`${types.API_URL}/members/${id}/stories`, options)
       .then((response) => {
         if (!response.ok) {
           throw Error(response.statusText);
@@ -33,6 +37,22 @@ export function loadStories(id) {
       })
       .then((response) => response.json())
       .then((stories) => dispatch(loadStoriesSuccess(stories)))
+      .catch((error) => { throw(error); });
+  };
+}
+
+export function loadStory(id) {
+  return (dispatch) => {
+    dispatch(beginAjaxCall());
+    fetch(`${types.API_URL}/stories/${id}`, options)
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response;
+      })
+      .then((response) => response.json())
+      .then((stories) => dispatch(loadStorySuccess(stories)))
       .catch((error) => { throw(error); });
   };
 }

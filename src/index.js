@@ -9,15 +9,17 @@ import routes from './routes';
 import {loadCourses} from './actions/courseActions';
 import {loadAuthors} from './actions/authorActions';
 import {loadStories} from './actions/storyActions';
+import {loadStory} from './actions/storyActions';
 import './styles/syles.css';
 import '../node_modules/toastr/build/toastr.min.css';
 
-const ID = '5f87df38-0a65-4999-ba9e-23e3e288659c';
+const MEM_ID = '5f87df38-0a65-4999-ba9e-23e3e288659c';
+const STR_ID = 'e585829f-8a2f-4a30-a6ea-e6f033af0e7f';
 
 const store = configureStore();
 store.dispatch(loadCourses());
 store.dispatch(loadAuthors());
-store.dispatch(loadStories(ID));
+store.dispatch(loadStories(MEM_ID));
 
 render(
   <Provider store={store}>
