@@ -13,8 +13,8 @@ export function loadStoriesSuccess(stories) {
   return {type: types.LOAD_STORIES_SUCCESS, stories};
 }
 
-export function loadStorySuccess(stories) {
-  console.log('LOAD_STORY_SUCCESS');
+export function loadStorySuccess(story) {
+  return {type: types.LOAD_STORY_SUCCESS, story};
 }
 
 export function createStorySuccess(story) {
@@ -49,10 +49,11 @@ export function loadStory(id) {
         if (!response.ok) {
           throw Error(response.statusText);
         }
+        console.log(response);
         return response;
       })
       .then((response) => response.json())
-      .then((stories) => dispatch(loadStorySuccess(stories)))
+      .then((story) => dispatch(loadStorySuccess(story)))
       .catch((error) => { throw(error); });
   };
 }

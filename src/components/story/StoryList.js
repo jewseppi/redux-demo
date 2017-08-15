@@ -14,7 +14,7 @@ const StoryList = ({stories}) => {
 };
 
 StoryList.propTypes = {
-  stories: PropTypes.object.isRequired
+  stories: PropTypes.array.isRequired
 };
 
 export default StoryList;

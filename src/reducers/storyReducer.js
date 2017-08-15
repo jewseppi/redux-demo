@@ -6,6 +6,9 @@ export default function storyReducer(state = initialState.stories, action) {
     case types.LOAD_STORIES_SUCCESS:
       return action.stories;
 
+    case types.LOAD_STORY_SUCCESS:
+      return action.story;_
+
     case types.CREATE_STORY_SUCCESS:
       return [
         ...state,

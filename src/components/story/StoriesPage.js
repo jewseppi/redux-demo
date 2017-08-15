@@ -28,7 +28,7 @@ class StoriesPage extends React.Component {
 }
 
 StoriesPage.propTypes = {
-  stories: PropTypes.object.isRequired,
+  stories: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 };
 

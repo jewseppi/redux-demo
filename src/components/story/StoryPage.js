@@ -12,22 +12,22 @@ class StoryPage extends React.Component {
   }
 
   render() {
-    const {stories} = this.props;
+    const {story} = this.props;
     return (
       <div styleName="container">
-        <StoryImage story={stories}/>
+        <StoryImage story={story}/>
       </div>
     );
   }
 }
 
 StoryPage.propTypes = {
-  stories: PropTypes.object.isRequired,
+  story: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
   return {
-    stories: state.stories
+    story: state.story
   };
 }
 
